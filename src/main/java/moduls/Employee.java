@@ -2,17 +2,21 @@ package moduls;
 
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
 
 @Entity
 public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
+    @NotEmpty(message = "not null")
     String codeId;
     String name;
+    @Min(value = 18,message = " > 18")
     int age;
     @ManyToOne
-    @JoinColumn(name = "phongBanId")
     private  PhongBan phongBan;
 
     public Employee() {

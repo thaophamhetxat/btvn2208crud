@@ -45,7 +45,7 @@
             <td th:text="${employee.codeId}"></td>
             <td th:text="${employee.name}"></td>
             <td th:text="${employee.age}"></td>
-            <td th:text="${employee.phongBan}"></td>
+            <td th:text="${employee.phongBan.name}"></td>
             <td><a th:href="@{/detail/{id}(id = ${employee.id})}" class="btn btn-warning">Detail</a></td>
             <td><a th:href="@{/edit/{id}(id = ${employee.id})}" class="btn btn-warning">Edit</a></td>
             <td><a th:href="@{/delete/{id}(id = ${employee.id})}" class="btn btn-danger">Delete</a></td>

@@ -13,7 +13,7 @@
 
 <div class="container">
     <h2>Table Edit Customer</h2>
-    <form action="/create" method="post">
+    <form action="/create" method="post" th:object="${listPB}">
         <table class="table">
             <thead>
             <tr>
@@ -28,10 +28,21 @@
                 <td><input name="codeId"></td>
                 <td><input name="name"></td>
                 <td><input name="age"></td>
-                <td><select name="phongBanId">
-                    <option th:each="pb: ${listPhongBan}" th:value="${pb.name}" th:text="${pb.name}"></option>
+                <td><select th:field="*{phongBan}">
+                    <option th:each="pb: ${phongBanList}" th:value="${pb.id}" th:text="${pb.name}"></option>
                 </select>
                 </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <span style="color: red" th:if="${#fields.hasErrors('name')}"
+                          th:errors="*{name}"></span>
+                </td>
+                <td> <span style="color: red" th:if="${#fields.hasErrors('age')}"
+                           th:errors="*{age}"></span>
+                </td>
+                <td></td>
             </tr>
             </tbody>
         </table>

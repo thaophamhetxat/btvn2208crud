@@ -7,5 +7,5 @@ import java.util.ArrayList;
 
 public interface IPhongBanService {
     ArrayList<PhongBan> ShowAllPhongBan();
-    void edit(PhongBan phongBan);
+    PhongBan findbyId(int id);
 }

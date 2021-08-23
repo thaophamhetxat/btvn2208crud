@@ -9,13 +9,16 @@ import java.util.ArrayList;
 public class PhongBanService implements IPhongBanService{
     @Autowired
     IPhongBanRepo iPhongBanRepo;
+
     @Override
     public ArrayList<PhongBan> ShowAllPhongBan() {
         return (ArrayList<PhongBan>) iPhongBanRepo.findAll();
     }
 
     @Override
-    public void edit(PhongBan phongBan) {
-        iPhongBanRepo.save(phongBan);
+    public PhongBan findbyId(int id) {
+        return iPhongBanRepo.findById(id).get();
     }
+
+
 }
